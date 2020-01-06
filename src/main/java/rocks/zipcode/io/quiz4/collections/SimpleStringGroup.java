@@ -9,7 +9,7 @@ public class SimpleStringGroup {
     }
 
     public Integer count() {
-        return null;
+        return 0;
     }
 
     public void insert(String string) {
