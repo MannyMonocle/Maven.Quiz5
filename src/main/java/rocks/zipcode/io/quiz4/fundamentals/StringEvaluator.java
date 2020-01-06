@@ -1,6 +1,7 @@
 package rocks.zipcode.io.quiz4.fundamentals;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author leon on 11/12/2018.
@@ -22,8 +23,12 @@ public class StringEvaluator {
     public static String[] getCommonSubstrings(String string1, String string2) {
 
         ArrayList<String> list = new ArrayList<>();
-
-        return null;
+        String[] one = getAllSubstrings(string1);
+        String[] two = getAllSubstrings(string2);
+        for(String sub : one){
+            if(Arrays.asList(two).contains(sub)){ list.add(sub); }
+        }
+        return list.toArray(new String[0]);
     }
 
     public static String getLargestCommonSubstring(String string1, String string2) {
