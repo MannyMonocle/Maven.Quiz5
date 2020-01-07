@@ -1,7 +1,6 @@
 package rocks.zipcode.io.quiz4.fundamentals;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * @author leon on 11/12/2018.
@@ -32,6 +31,13 @@ public class StringEvaluator {
     }
 
     public static String getLargestCommonSubstring(String string1, String string2) {
-        return null;
+
+        String[] all = getCommonSubstrings(string1,string2);
+
+        for(int i = 0; i < all.length - 1; i++){
+            if(all[i].length() > all[i+1].length()){ all[i+1] = all[i]; }
+        }
+
+        return all[all.length - 1];
     }
 }
