@@ -1,31 +1,53 @@
 package rocks.zipcode.io.quiz4.collections;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 /**
  * @author leon on 11/12/2018.
  */
-public class SimpleStringGroup {
-    public SimpleStringGroup() {
-        throw new UnsupportedOperationException("Method not yet implemented");
-    }
+public class SimpleStringGroup implements Iterable<String> {
 
-    public Integer count() {
-        return 0;
-    }
+    //Fields
+    private ArrayList<String> group = new ArrayList<>();
 
-    public void insert(String string) {
-    }
+    //Constructor
+    public SimpleStringGroup() { }
+
+    //Methods
+    public Integer count() { return group.size(); }
+
+    public void insert(String string) { group.add(string); }
 
     public Boolean has(String string) {
-        return null;
+        return group.contains(string);
     }
 
     public String fetch(int indexOfValue) {
-        return null;
+        return group.get(indexOfValue);
     }
 
-    public void delete(String string) {
+    public void delete(String string) { group.remove(string); }
+
+    public void clear() { group.clear(); }
+
+    //Implement Methods
+
+
+    @Override
+    public Iterator<String> iterator() {
+        return group.iterator();
     }
 
-    public void clear() {
+    @Override
+    public void forEach(Consumer<? super String> action) {
+        group.forEach(action);
+    }
+
+    @Override
+    public Spliterator<String> spliterator() {
+        return group.spliterator();
     }
 }
